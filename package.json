@@ -1,5 +1,5 @@
 {
-  "name": "demo-vue-web",
+  "name": "risk-management-web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,15 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "element-plus": "^1.0.1-alpha.19",
+    "js-cookie": "^3.0.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "node-sass": "^4.14.1",
+    "postcss-px2rem": "^0.3.0",
+    "python": "0.0.4",
     "vue": "^3.0.0",
+    "vue-loader-v16": "^16.0.0-beta.5.4",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
@@ -25,7 +33,6 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.0.0",
-    "node-sass": "^4.12.0",
     "prettier": "^2.2.1",
     "sass-loader": "^8.0.2"
   }
