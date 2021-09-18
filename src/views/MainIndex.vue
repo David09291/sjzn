@@ -1,39 +1,69 @@
 <template>
-  <div class='common-layout'>
+  <div class="common-layout">
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>
+        <div>
+          <img src="#" alt="" />
+          <span>安全生产风险管控平台</span>
+        </div>
+        <div>11</div>
+      </el-header>
       <el-container>
-        <el-aside>Aside</el-aside>
-        <el-main>Main</el-main>
+        <el-aside @click="showmenu" v-show="ok"> 11 </el-aside>
+        <el-main> 1 </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
-<style lang='scss'>
+<script lang="ts">
+import { ref, reactive, onMounted } from 'vue'
 
+export default {
+  setup() {
+    const ok = ref(false)
+    function showmenu() {
+      console.log('showmenu')
+    }
+    return {
+      ok
+    }
+  }
+}
+</script>
+
+
+<style lang='scss'>
 body {
   margin: 0;
 }
+.el-container {
+  background-color: #f2f7f6;
+  .el-header {
+    background-color: #fff;
+    color: var(--el-text-color-primary);
+    line-height: 1.5rem;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    color: #277f7b;
+    img {
+      width: 20px;
+    }
+  }
+  .el-aside {
+    background-color: #277f7b;
+    color: var(--el-text-color-primary);
+    text-align: center;
+    line-height: 200px;
+    width: 100px;
+  }
 
-.el-header {
-  background-color: #b3c0d1;
-  color: var(--el-text-color-primary);
-  text-align: center;
+  .el-main {
+    color: var(--el-text-color-primary);
+    text-align: center;
+    line-height: 160px;
+  }
 }
-
-.el-aside {
-  background-color: #d3dce6;
-  color: var(--el-text-color-primary);
-  text-align: center;
-  line-height: 200px;
-}
-
-.el-main {
-  background-color: #e9eef3;
-  color: var(--el-text-color-primary);
-  text-align: center;
-  line-height: 160px;
-}
-
 </style>
+
