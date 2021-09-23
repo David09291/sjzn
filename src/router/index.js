@@ -5,13 +5,21 @@ const routes = [
   {
     path: '/',
     component: Main,
-    children: [
-      {
-        path: 'admittance',
-        name: 'admittance',
-        component: () => import('../views/admittance/index.vue')
-      }
-    ]
+  },
+  {
+    path: '/admittance',
+    name: 'admittance',
+    component: () => import('../views/admittance/index.vue')
+  },
+  {
+    path: '/supervise',
+    name: 'supervise',
+    component: () => import('../views/Supervise/Index.vue')
+  },
+  {
+    path: '/exam',
+    name: 'exam',
+    component: () => import('../views/exam/Index.vue')
   },
   {
     path: '/404',

@@ -1,44 +1,46 @@
 <template>
-  <div class="common-layout">
+  <div class='common-layout'>
     <el-container>
       <el-header>
         <div>
-          <img src="#" alt="" />
+          <img src='#' alt='' />
           <span>安全生产风险管控平台</span>
         </div>
         <div>11</div>
       </el-header>
       <el-container>
-        <el-aside @click="showmenu" v-show="ok"> 11 </el-aside>
-        <el-main> 1 </el-main>
+        <el-aside @click='showmenu'>menu</el-aside>
+        <el-main> 1</el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
-<script lang="ts">
-import { ref } from 'vue'
+<script lang='ts'>
+// import { ref } from 'vue'
 
 export default {
   setup() {
-    const ok = ref(false)
+
     function showmenu() {
       console.log('showmenu')
     }
+
     return {
-      ok,
       showmenu
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang='scss'>
 body {
   margin: 0;
 }
+
 .el-container {
   background-color: #f2f7f6;
+
   .el-header {
     background-color: #fff;
     color: var(--el-text-color-primary);
@@ -47,10 +49,12 @@ body {
     display: flex;
     justify-content: space-between;
     color: #277f7b;
+
     img {
       width: 20px;
     }
   }
+
   .el-aside {
     background-color: #277f7b;
     color: var(--el-text-color-primary);
