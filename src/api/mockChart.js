@@ -1,4 +1,4 @@
-import request from "@/utils/request";
+import request from '@/utils/request'
 //这里用mock数据
 
 /**
@@ -9,7 +9,7 @@ import request from "@/utils/request";
  */
 
 export function selectTypeData(params) {
-  return request.post("/bar/selectTypeData", params);
+  return request.post('/bar/selectTypeData', params)
 }
 
 /**
@@ -20,7 +20,7 @@ export function selectTypeData(params) {
  */
 
 export function selectWordData(params) {
-  return request.post("/word/selectWordData", params);
+  return request.post('/word/selectWordData', params)
 }
 
 /**
@@ -31,7 +31,7 @@ export function selectWordData(params) {
  */
 
 export function selectBoxChartData(params) {
-  return request.post("/box/selectBoxData", params);
+  return request.post('/box/selectBoxData', params)
 }
 
 /**
@@ -42,7 +42,7 @@ export function selectBoxChartData(params) {
  */
 
 export function selectOtherData(params) {
-  return request.post("/line/selectOtherData", params);
+  return request.post('/line/selectOtherData', params)
 }
 
 /**
@@ -52,5 +52,5 @@ export function selectOtherData(params) {
  */
 
 export function selectYearValue(params) {
-  return request.post("/liquid/selectYearValue", params);
+  return request.post('/liquid/selectYearValue', params)
 }

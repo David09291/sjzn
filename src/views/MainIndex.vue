@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref } from 'vue'
 
 export default {
   setup() {
@@ -26,14 +26,14 @@ export default {
       console.log('showmenu')
     }
     return {
-      ok
+      ok,
+      showmenu
     }
   }
 }
 </script>
 
-
-<style lang='scss'>
+<style lang="scss">
 body {
   margin: 0;
 }
@@ -66,4 +66,3 @@ body {
   }
 }
 </style>
-

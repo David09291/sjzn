@@ -4,18 +4,20 @@ import Main from '../views/MainIndex.vue'
 const routes = [
   {
     path: '/',
-    name: 'Main',
-    component: Main
+    component: Main,
+    children: [
+      {
+        path: 'admittance',
+        name: 'admittance',
+        component: () => import('../views/admittance/index.vue')
+      }
+    ]
   },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('../views/404/404.vue')
+  }
 ]
 
 const router = createRouter({
