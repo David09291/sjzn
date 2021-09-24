@@ -1,46 +1,45 @@
 <template>
-    <div class="logo-wrapper">
-        <img src="~@/assets/logo.png" alt="">
-        <span v-if="!isCollapse" class="logo-text">vue3-element-plus</span>
-    </div>
+  <div style="display: flex;align-items: center;">
+    <span :class="!isCollapse ? 'el-icon-s-fold' : 'el-icon-s-unfold'" @click="changeIsCollapse"></span>
+  </div>
 </template>
 <script lang="ts">
-import{ defineComponent }from 'vue';
-export default defineComponent({
-    name: "",
-    props:{
-        isCollapse:{
-            type:Boolean,
-            default:true
-        }
-    },
-    setup: () => {
+import {defineComponent, reactive, toRefs, watch} from 'vue';
+import router from "@/router";
 
+export default defineComponent({
+  name: "",
+  props: {
+    isCollapse: {
+      type: Boolean,
+      default: true
     }
+  },
+
+  setup: (props, {emit}) => {
+    const state: any = reactive({
+      routeMatched: [],
+      isCollapse: false  // 控制菜单展开 收起
+    })
+    const handleLink = (item: any) => {
+      console.log(item)
+      router.push({path: item.path})
+    }
+    const changeIsCollapse = (): void => {
+      emit('changeIsCollapse')
+    }
+    return {
+      handleLink,
+      ...toRefs(state),
+      changeIsCollapse
+    }
+  }
 })
 </script>
 <style scoped>
-.logo-wrapper{
-    height:60px;
-    margin:0 auto;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--menuBg);
-    overflow:hidden;
-}
-.logo-wrapper img{
-    width:50px;
-}
-.logo-wrapper span{
-    color:var(--menuTextColor);
-}
-.logo-text{
-    white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+.el-icon-s-fold, .el-icon-s-unfold {
+  cursor: pointer;
+  font-size: 30px;
+  padding: 15px;
 }
 </style>
