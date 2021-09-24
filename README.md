@@ -1,16 +1,14 @@
-# risk-management-web
-
-## 项目源代码文件目录
-* 静态文件 assets
-* 插件 plugins
-* 路由文件 router
-* 入口文件 main.js
-* 组件 components
-* 服务 service
-* 状态仓库 store
-* 工具类文件 utils
-* 页面 views
-
+# v3-element
+## 基于vue3.x 实现的后台管理系统模板
+    1、  登录逻辑.
+    2、  基本布局(基于elementPlus)
+    3、  动态路由逻辑
+    4、  动态菜单栏逻辑
+    5、  面包屑 
+    6、  皮肤切换 
+    7、  假数据模拟路由菜单 
+## gif示例
+![image](https://github.com/zzz0908/vue3-elementPlus-admin/blob/master/v3.gif)
 ## Project setup
 ```
 yarn install
@@ -24,11 +22,6 @@ yarn serve
 ### Compiles and minifies for production
 ```
 yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
 ```
 
 ### Customize configuration
