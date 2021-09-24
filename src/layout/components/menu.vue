@@ -10,29 +10,32 @@
         background-color="var(--menuBg)"
         text-color="var(--menuTextColor)"
         active-text-color="var(--menuActiveTextColor)">
-      <template v-for="(menu,index) in menus">
+
+      <template v-for="(menu,index) in menus" :key="index">
         <!-- 存在一个子节点 父节点为Layout -->
         <template v-if="menu.name === undefined">
-          <el-menu-item @click="selectMenu(menu.children[0])" :index="menu.children[0].meta.url" :key="menu.path">
+          <el-menu-item @click="selectMenu(menu.children[0])" :index="menu.children[0].meta.url" :key="menu.path"
+                        style="background-color: #cccccc">
             <i class="el-icon-location"></i>
-            <template #title>{{ menu.meta.title }}</template>
+            <template #title style="background-color: #cccccc">{{ menu.meta.title }}</template>
           </el-menu-item>
         </template>
         <!-- 不存在子节点 -->
-        <template v-else-if="menu.children === undefined || menu.children.length === 0 || menu.name === undefined">
+        <template v-else-if="menu.children === undefined || menu.children.length === 0 || menu.name === undefined"
+                  style="background-color: #cccccc">
           <el-menu-item @click="selectMenu(menu)" :index="menu.meta.url" :key="menu.path">
             <i class="el-icon-location"></i>
             <template #title>{{ menu.meta.title }}</template>
           </el-menu-item>
         </template>
         <!-- 存在多个子节点 -->
-        <el-submenu v-else :index="menu.path" :key="menu.path">
+        <el-submenu v-else :index="menu.path" :key="menu.path" style="background-color: #cccccc">
           <template #title>
             <i class="el-icon-location"></i>
             <span>{{ menu.meta.title }}</span>
           </template>
-          <el-menu-item @click="selectMenu(item)" :index="item.meta.url" v-for="(item,i) in menu.children"
-                        :key="item.path">
+          <el-menu-item @click="selectMenu(item)" :index="item.meta.url" v-for="item in menu.children"
+                        :key="item.path" style="background-color: #cccccc">
             <template #title>{{ menu.meta.title }}</template>
           </el-menu-item>
         </el-submenu>
@@ -41,7 +44,7 @@
   </div>
 </template>
 <script lang="ts">
-import {defineComponent, toRefs, reactive, onMounted, watch, computed, ref} from 'vue';
+import {defineComponent, reactive, watch, computed, ref} from 'vue';
 import router from '@/router/index'
 import store from '@/store/index'
 import {Store} from 'vuex'
@@ -54,12 +57,15 @@ export default defineComponent({
       default: true
     }
   },
-  setup: (props) => {
+  setup: (props, {emit}) => {
     watch(() => {
       return props.isCollapse
     }, (n) => {
       console.log(n)
     })
+    const changeIsCollapse = (): void => {
+      emit('changeIsCollapse')
+    }
     const handleOpen = (key: number, keyPath: string): void => {
       console.log(key, keyPath);
     }
@@ -80,14 +86,16 @@ export default defineComponent({
       handleClose,
       menus,
       selectMenu,
-      currentRoutePath
+      currentRoutePath,
+      changeIsCollapse,
     }
   }
 })
 </script>
-<style scoped>
+<style>
 .menu-wrapper {
   height: calc(100vh - 14vh);
-  background-color: var(--menuBg);
+  /*background-color: var(--menuBg);*/
 }
+
 </style>

@@ -5,8 +5,9 @@
     </el-header>
     <el-container>
       <el-aside style="transition: all .5s" :width="!isCollapse ? '200px' : '64px'">
+        <!--        <VLogo :isCollapse="isCollapse" @click="changeIsCollapse"/>  &lt;!&ndash; logo &ndash;&gt;-->
+        <span :class="!isCollapse ? 'el-icon-s-fold' : 'el-icon-s-unfold'" @click="changeIsCollapse"></span>
         <VMenu :isCollapse="isCollapse"/>  <!-- 菜单 -->
-        <VLogo :isCollapse="isCollapse" @click="changeIsCollapse"/>  <!-- logo -->
       </el-aside>
       <el-main>
         <el-breadcrumb separator-class="el-icon-arrow-right" style="display:inline-block;">
@@ -69,8 +70,19 @@ export default defineComponent({
   background-color: #f1f5f5f5;
 }
 
+.el-aside {
+  background-color: #cccccc;
+}
+
 .el-breadcrumb {
   padding: 1em 0;
 
+}
+
+.el-icon-s-fold, .el-icon-s-unfold {
+  cursor: pointer;
+  font-size: 30px;
+  padding: 20px;
+  /*background-color: #1b2735;*/
 }
 </style>

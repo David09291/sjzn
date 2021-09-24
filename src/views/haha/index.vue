@@ -1,6 +1,6 @@
 <template>
     <div>
-    haha
+ cgfjhh
     </div>
 </template>
 <script lang="ts">

@@ -1,10 +1,10 @@
 <template>
-  <div style="display: flex;align-items: center;">
+  <div>
     <span :class="!isCollapse ? 'el-icon-s-fold' : 'el-icon-s-unfold'" @click="changeIsCollapse"></span>
   </div>
 </template>
 <script lang="ts">
-import {defineComponent, reactive, toRefs, watch} from 'vue';
+import {defineComponent, reactive, watch} from 'vue';
 import router from "@/router";
 
 export default defineComponent({
@@ -21,25 +21,24 @@ export default defineComponent({
       routeMatched: [],
       isCollapse: false  // 控制菜单展开 收起
     })
-    const handleLink = (item: any) => {
-      console.log(item)
-      router.push({path: item.path})
-    }
+    watch(() => router.currentRoute.value.matched, (n) => {
+      state.routeMatched = router.currentRoute.value.matched
+    }, {deep: true, immediate: true})
     const changeIsCollapse = (): void => {
       emit('changeIsCollapse')
     }
     return {
-      handleLink,
-      ...toRefs(state),
-      changeIsCollapse
+      changeIsCollapse,
+
     }
   }
 })
 </script>
 <style scoped>
-.el-icon-s-fold, .el-icon-s-unfold {
-  cursor: pointer;
-  font-size: 30px;
-  padding: 15px;
-}
+/*.el-icon-s-fold, .el-icon-s-unfold {*/
+/*  cursor: pointer;*/
+/*  font-size: 30px;*/
+/*  padding: 15px;*/
+/*  background-color: #1b2735;*/
+/*}*/
 </style>

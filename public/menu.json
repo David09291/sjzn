@@ -91,6 +91,25 @@
                     "children":[]
                 }
             ]
+        },
+        {
+            "path":"/exam",
+            "meta":{
+                "title":"考试",
+                "icon":""
+            },
+            "children":[
+                {
+                    "name":"exam",
+                    "path":"index",
+                    "meta":{
+                        "title":"考试",
+                        "icon":"",
+                        "component":"Exam/index"
+                    },
+                    "children":[]
+                }
+            ]
         }
     ]
 }
